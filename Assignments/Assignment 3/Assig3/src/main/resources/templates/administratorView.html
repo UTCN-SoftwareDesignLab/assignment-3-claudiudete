@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<h2>Administrator View</h2>
+<h2>Select an operation</h2>
+
+<form action="#" th:action="@{createUser}" method="get">
+    <p><input type='submit' class="button" value="create User" />
+
+    </p>
+</form>
+
+<form action="#" th:action="@{updateUser}" method="get">
+    <p><input type='submit' class="button" value="update User" />
+
+    </p>
+</form>
+
+<form action="#" th:action="@{removeUser}" method="post">
+    <p><input type='submit' class="button" value="remove User" />
+
+    </p>
+</form>
+
+<form action="#" th:action="@{showUsers}" method="post">
+    <p><input type='submit' class="button" value="display Users" />
+
+    </p>
+</form>
+
+</body>
+</html>

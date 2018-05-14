@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor View</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/doctor.js"></script>
+</head>
+<body>
+<h2>Doctor View</h2>
+<form action="#" th:action="@{viewConsultations}" method="get">
+    <p><input type='submit' class="button" value="display consult" />
+
+    </p>
+</form>
+
+<form action="#" th:action="@{addMessages}" method="get">
+    <p><input type='submit' class="button" value="add message" />
+
+    </p>
+</form>
+
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th width="30%">Patient Name</th>
+                    <th width="20 %">Doctor Name</th>
+                    <th width="40%">Date</th>
+                </tr>
+                </thead>
+                <tbody id="messages">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

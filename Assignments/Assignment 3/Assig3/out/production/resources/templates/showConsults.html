@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Show Consults</title>
+
+    <style>
+            th {
+            text-align: left;
+            }
+
+
+            </style>
+</head>
+<body>
+<table style="width:100%">
+    <tbody>
+    <tr>
+
+        <td>Doctor Name</td>
+        <td>Patient Name</td>
+        <td>Date</td>
+        <td>Description</td>
+
+
+
+    </tr>
+    <tr th:each="consult : ${ consultList }">
+
+        <td th:text="${ consult.doctor.username }">Name</td>
+        <td th:text="${ consult.patient.name }">persNumericalCode</td>
+        <td th:text="${ consult.date }">identityCardNumber</td>
+        <td th:text="${ consult.description }">Description</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<form action="#" th:action="@{returnDoctor}"  method="post">
+    <p>
+        <input type="submit" class="button" value="back" />
+
+    </p>
+</form>
+</body>
+</html>

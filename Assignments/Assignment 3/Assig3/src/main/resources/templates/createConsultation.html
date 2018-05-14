@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/secretary.js"></script>
+    <meta charset="UTF-8">
+    <title>Create Consultation</title>
+</head>
+<body>
+<form action="#" th:action="@{crtConsultation}" th:object="${consultation}" method="post">
+    <table>
+
+        <tr>
+            <td>Date:</td>
+            <td><input type="date" id="date" th:field="${consultation.date}" /></td>
+            <td th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</td>
+
+        </tr>
+
+        <tr>
+            <td>Doctor:</td>
+            <td>  <select name="doctor" id="doctor" >
+                <option th:each="doctor : ${doctorList}"  th:field="${consultation.doctor}" th:value="${doctor.id}"  th:text="${doctor.username}"></option>
+            </select></td>
+            <td th:if="${#fields.hasErrors('doctor')}" th:errors="*{doctor}">Doctor Error</td>
+
+        </tr>
+
+        <tr>
+            <td>Patient:</td>
+            <td>  <select name="patient" id="patient" >
+                <option th:each="patient : ${patientList}" th:field="${consultation.patient}" th:value="${patient.id}"  th:text="${patient.name}"></option>
+            </select></td>
+            <td th:if="${#fields.hasErrors('patient')}" th:errors="*{patient}">Patient Error</td>
+        </tr>
+        </tr>
+
+
+
+
+
+
+
+        <tr>
+            <td><input  id="create" type="submit" value="Submit" /> </td>
+        </tr>
+    </table>
+</form>
+<table>
+    <tbody>
+    <tr>
+
+        <td>Errors</td>
+
+
+
+    </tr>
+    <tr th:each="message : ${ messages }">
+
+        <td th:text="${message}">Name</td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

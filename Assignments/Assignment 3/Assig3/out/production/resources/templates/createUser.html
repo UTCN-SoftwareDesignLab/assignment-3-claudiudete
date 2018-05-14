@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create User</title>
+</head>
+<body>
+<h2>Enter the data for the new user</h2>
+
+<form action="#" th:action="@{crtUser}" th:object="${userDto}" method="post">
+    <table>
+
+
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" th:field="*{username}" /></td>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</td>
+        </tr>
+
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" th:field="*{password}" /></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+          <td>  <select name="role" id="role" >
+                <option th:each="role : ${roles}" th:field="${userDto.role}" th:value="${role}"  th:text="${role}"></option>
+          </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /> </td>
+        </tr>
+
+
+</table>
+</form>
+</body>
+</html>

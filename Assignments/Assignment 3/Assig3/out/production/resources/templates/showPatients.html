@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DisplayBooks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <style>
+            th {
+            text-align: left;
+            }
+
+
+            </style>
+</head>
+<body>
+
+
+<table style="width:100%">
+    <tbody>
+    <tr>
+
+        <td>Name</td>
+        <td>persNumericalCode</td>
+        <td>identityCardNumber</td>
+        <td>Address</td>
+        <td>Date</td>
+
+
+    </tr>
+    <tr th:each="patient : ${ patientList }">
+
+        <td th:text="${ patient.name }">Name</td>
+        <td th:text="${ patient.persNumericalCode }">persNumericalCode</td>
+        <td th:text="${ patient.identityCardNumber }">identityCardNumber</td>
+        <td th:text="${ patient.address }">Address</td>
+        <td th:text="${ patient.dateOfBirth }">dateOfBirth</td>
+
+
+    </tr>
+    </tbody>
+</table>
+
+
+<form action="#" th:action="@{ret}"  method="post">
+    <p>
+        <input type="submit" class="button" value="back" />
+
+    </p>
+</form>
+
+
+</body>
+</html>

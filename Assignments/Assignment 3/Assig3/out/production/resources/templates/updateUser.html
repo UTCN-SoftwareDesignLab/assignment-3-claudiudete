@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>UpdateUser</title>
+</head>
+<body>
+<h2>Select the username of the user you want to update</h2>
+
+<form action="#" th:action="@{updUser}" th:object="${userDto}" method="post">
+    <table>
+
+
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" th:field="*{username}" /></td>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</td>
+        </tr>
+
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" th:field="*{password}" /></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td>  <select name="role" id="role" >
+                <option th:each="role : ${roles}" th:field="${userDto.role}" th:value="${role}"  th:text="${role}"></option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /> </td>
+        </tr>
+
+
+    </table>
+</form>
+
+<table style="width:100%">
+    <tbody>
+    <tr>
+
+        <td>Username</td>
+
+        <td>Role</td>
+
+
+    </tr>
+    <tr th:each="user : ${ userLst }">
+
+        <td th:text="${ user.username }">Username</td>
+        <td th:text="${ user.role }">Role</td>
+
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

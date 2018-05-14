@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Patient</title>
+</head>
+<body>
+<h2>Enter the patient you want to add</h2>
+<form action="#" th:action="@{crtPatient}" th:object="${patientDto}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+
+        <tr>
+            <td>Personal Numerical Code:</td>
+            <td><input type="text" th:field="*{persNumericalCode}" /></td>
+            <td th:if="${#fields.hasErrors('persNumericalCode')}" th:errors="*{persNumericalCode}">Numerical Code Error</td>
+        </tr>
+        <tr>
+            <td>ID Card Number:</td>
+            <td><input type="text" th:field="*{identityCardNumber}" /></td>
+            <td th:if="${#fields.hasErrors('identityCardNumber')}" th:errors="*{identityCardNumber}">ID Error</td>
+        </tr>
+
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" th:field="*{address}" /></td>
+            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+        </tr>
+        <tr>
+            <td>Date of Birth:</td>
+            <td><input type="date" th:field="*{dateOfBirth}" /></td>
+            <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">Date of Birth Error</td>
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="Submit" /> </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

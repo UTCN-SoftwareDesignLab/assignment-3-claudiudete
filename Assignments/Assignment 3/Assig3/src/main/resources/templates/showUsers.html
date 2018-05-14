@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>DisplayUsers</title>
+    <style>
+            th {
+            text-align: left;
+            }
+
+
+            </style>
+</head>
+<body>
+
+<table style="width:100%">
+    <tbody>
+    <tr>
+
+        <td>Username</td>
+        <td>Role</td>
+
+
+
+    </tr>
+    <tr th:each="user : ${ userList }">
+
+        <td th:text="${ user.username }">Username</td>
+        <td th:text="${ user.role }">Role</td>
+
+
+
+    </tr>
+    </tbody>
+</table>
+
+
+<form action="#" th:action="@{return}"  method="get">
+    <p>
+        <input type="submit" class="button" value="back" />
+
+    </p>
+</form>
+
+
+
+</body>
+</html>

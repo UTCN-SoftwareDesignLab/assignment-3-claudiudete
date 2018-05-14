@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Message</title>
+    <style>
+            th {
+            text-align: left;
+            }
+
+
+            </style>
+</head>
+<body>
+<h2>Enter the id of the consultation you want to update</h2>
+
+<form action="#" th:action="@{addMsg}" th:object="${consultation}" method="post">
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><input type="text" th:field="*{id}" /></td>
+            <td th:if="${#fields.hasErrors('id')}" th:errors="*{id}">ID Error</td>
+        </tr>
+
+        <tr>
+            <td>Message you want to add</td>
+            <td><input type="text" th:field="*{description}" /></td>
+            <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description error</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /> </td>
+        </tr>
+    </table>
+</form>
+
+<table style="width:100%">
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td>Doctor Name</td>
+        <td>Patient Name</td>
+        <td>Date</td>
+
+
+
+    </tr>
+    <tr th:each="consult : ${ consultList }">
+        <td th:text="${ consult.id }">Name</td>
+        <td th:text="${ consult.doctor.username }">Name</td>
+        <td th:text="${ consult.patient.name }">persNumericalCode</td>
+        <td th:text="${ consult.date }">identityCardNumber</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

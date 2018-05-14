@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>RemoveConsultation</title>
+    <style>
+            th {
+            text-align: left;
+            }
+
+
+            </style>
+</head>
+<body>
+<h2>Enter the consultation you want to remove</h2>
+
+<form action="#" th:action="@{delConsult}" th:object="${consultation}" method="post">
+    <p>
+
+    <p> <input type="text" th:field="*{id}"></p>
+    <input type="submit" class="button" value="delete user" /></p>
+
+</form>
+<table style="width:100%">
+    <tbody>
+    <tr>
+        <td>ID</td>
+        <td>Doctor Name</td>
+        <td>Patient Name</td>
+        <td>Date</td>
+        <td>Description</td>
+
+
+
+    </tr>
+    <tr th:each="consult : ${ consultList }">
+        <td th:text="${ consult.id }">ID</td>
+        <td th:text="${ consult.doctor.username }">Doctor Name</td>
+        <td th:text="${ consult.patient.name }">Patient name</td>
+        <td th:text="${ consult.date }">date</td>
+        <td th:text="${ consult.description }">Description</td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <tbody>
+    <tr>
+
+        <td>Errors</td>
+
+
+
+    </tr>
+    <tr th:each="message : ${ messages }">
+
+        <td th:text="${message}">Name</td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+
+</html>
